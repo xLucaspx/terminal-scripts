@@ -126,9 +126,12 @@ export PATH=$PATH:$JAVA_HOME/bin
 export M2_HOME=/opt/apache-maven-3.9.9
 export PATH=$PATH:$M2_HOME/bin
 
+# for GPG to work properly
+export GPG_TTY=$(tty)
+
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-export PS1="\e[32m\u@\h \[\e[34m\]\w\[\e[36m\]\$(parse_git_branch)\[\e[00m\]\n$ "
+export PS1="\e[32m\u@\h \e[35m\]$(basename $SHELL) \[\e[34m\]\w\[\e[36m\]\$(parse_git_branch)\[\e[00m\]\n$ "
 
