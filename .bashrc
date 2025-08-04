@@ -116,18 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export JAVA_HOME=/opt/java/jdk-23
-export PATH=$PATH:$JAVA_HOME/bin
-
-export M2_HOME=/opt/apache-maven-3.9.9
-export PATH=$PATH:$M2_HOME/bin
-
 # for GPG to work properly
 export GPG_TTY=$(tty)
+
+# add scripts for run .jar apps
+export PATH="$PATH:/opt/asm-simulators/bin"
+export PATH="$PATH:/opt/logisim/bin"
+
+# add Go to path
+export PATH="$PATH:/usr/local/go/bin"
 
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -135,3 +132,10 @@ parse_git_branch() {
 
 export PS1="\e[32m\u@\h \e[35m\]$(basename $SHELL) \[\e[34m\]\w\[\e[36m\]\$(parse_git_branch)\[\e[00m\]\n$ "
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
