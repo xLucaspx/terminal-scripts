@@ -119,12 +119,18 @@ fi
 # for GPG to work properly
 export GPG_TTY=$(tty)
 
-# add scripts for run .jar apps
+# add scripts to run .jar apps
 export PATH="$PATH:/opt/asm-simulators/bin"
 export PATH="$PATH:/opt/logisim/bin"
+export PATH="$PATH:/opt/book-management/bin"
 
-# add Go to path
-export PATH="$PATH:/usr/local/go/bin"
+# add to path
+export PATH="$PATH:/usr/local/cmake-4.1.0-linux-x86_64/bin/" # CMake
+export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux" # LaTeX
+export PATH="$PATH:/usr/local/gnuplot-6.0.3/bin/" # gnuplot
+export PATH="$PATH:/usr/local/go/bin" # Go
+export PATH="$PATH:/opt/svls" # svls
+export PATH="$PATH:/home/lucaspx/intelFPGA/20.1/modelsim_ase/bin" # ModelSim
 
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
