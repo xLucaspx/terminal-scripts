@@ -56,21 +56,3 @@ function Write-BranchName {
 function Get-Path {
 	$env:Path.Split(";")
 }
-
-function Open-Logisim {
-	Start-Process powershell -WorkingDirectory "C:\logisim" -WindowStyle hidden { java -jar "logisim-evolution-3.9.0.jar" }
-}
-
-New-Alias logisim Open-Logisim
-
-function Open-BrModelo {
-	Start-Process powershell -WorkingDirectory "C:\brmodelo" -WindowStyle hidden { java -jar "brModelo.jar" }
-}
-
-New-Alias brmodelo Open-BrModelo
-
-function Open-Rars {
-	Start-Process powershell -WorkingDirectory "C:\rars" -WindowStyle hidden { java -jar "rars1_6.jar" }
-}
-
-New-Alias rars Open-Rars
