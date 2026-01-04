@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# fix: on reboot, WSL recreates the `/run/user/$UID` dir with permission 0755, but it should be 0700
+# WSL fix: on reboot, WSL recreates the `/run/user/$UID` dir with permission 0755, but it should be 0700
 chmod 0700 /run/user/$(id -u) 2>/dev/null
 
 # for GPG to work properly

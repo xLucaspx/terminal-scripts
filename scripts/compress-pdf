@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+BLUE="\033[34m"
+RED="\033[31m"
+YELLOW="\033[33m"
+RESET="\033[0m"
+
+log_info() {
+	echo -e "${BLUE}[Info]${RESET} $1" >&2
+}
+
+log_warn() {
+	echo -e "${YELLOW}[Warn]${RESET} $1" >&2
+}
+
+log_error() {
+	echo -e "${RED}[Error]${RESET} $1" >&2
+}
+
+# Verifica se o caminho foi informado
+if [ -z "$1" ]; then
+	log_error "Informe o caminho do arquivo PDF."
+	exit 1
+fi
+
+PDF_PATH="$1"
+
+# Verifica se o arquivo existe
+if [ ! -f "$PDF_PATH" ]; then
+	log_error "Arquivo não encontrado: '$PDF_PATH'."
+	exit 1
+fi
+
+# Verifica se o arquivo é um PDF (checa extensão e cabeçalho)
+if [[ "${PDF_PATH##*.}" != "pdf" ]]; then
+	log_error "Arquivo não possui extensão .pdf: '$PDF_PATH'."
+	exit 1
+fi
+
+if ! head -c 4 "$PDF_PATH" | grep -q "%PDF"; then
+	log_error "Arquivo não parece ser um PDF válido: '$PDF_PATH'."
+	exit 1
+fi
+
+command -v gs >/dev/null 2>&1 || {
+	log_error "Ghostscript (gs) não encontrado no sistema."
+	exit 1
+}
+
+BASE_NAME="${PDF_PATH%.pdf}"
+UNCOMPRESSED_NAME="${BASE_NAME}-uncompressed.pdf"
+
+mv "$PDF_PATH" "$UNCOMPRESSED_NAME"
+
+gs -sDEVICE=pdfwrite \
+	-dCompatibilityLevel=1.7 \
+	-dNOPAUSE -dQUIET -dBATCH \
+	-dDownsampleGrayImages=true \
+	-dDownsampleMonoImages=true \
+	-dDownsampleColorImages=true \
+	-dGrayImageDownsampleType=/Average \
+	-dMonoImageDownsampleType=/Subsample \
+	-dColorImageDownsampleType=/Average \
+	-dGrayImageResolution=300 \
+	-dMonoImageResolution=300 \
+	-dColorImageResolution=300 \
+	-sOutputFile="$PDF_PATH" \
+	"$UNCOMPRESSED_NAME"
+
+SIZE_ORIGINAL=$(stat -c %s "$UNCOMPRESSED_NAME")
+SIZE_COMPRESSED=$(stat -c %s "$PDF_PATH")
+DELTA=$((SIZE_ORIGINAL - SIZE_COMPRESSED))
+
+if [ "$SIZE_COMPRESSED" -ge "$SIZE_ORIGINAL" ]; then
+	log_warn "Compressão piorou, mantendo arquivo original"
+	echo "Diferença: -$(numfmt --to=iec "$((-DELTA))")"
+
+	mv "$PDF_PATH" "$BASE_NAME-compressed-worse.pdf"
+	mv "$UNCOMPRESSED_NAME" "$PDF_PATH"
+else
+	log_info "Compressão bem sucedida"
+	echo "Economia: $(numfmt --to=iec "$DELTA")"
+fi
