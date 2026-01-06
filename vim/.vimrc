@@ -29,3 +29,8 @@ highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
 let &t_EI = "\e[2 q"
+
+augroup RestoreCursorShape
+	autocmd!
+	autocmd VimLeave * silent !echo -ne "\e[6 q"
+augroup END
