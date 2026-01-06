@@ -19,11 +19,11 @@ tal diretório e tenha a extensão `.conf`.
 > para isso, o ideal é pesquisar o passo a passo de acordo com o sistema operacional.
 
 - [`nvidia-power-management.conf`](./nvidia-power-management.conf): Usado para configurar a placa para suspensão
-  automática, evitando travamentos.
+	automática, evitando travamentos.
 
 ## _Scripts_
 
 Utilitários relacionados à placa de vídeo Nvidia.
 
 - [`nvidia-offload`](./nvidia-offload): Em alguns sistemas operacionais, é possível que não exista um comando para
-  executar uma aplicação explicitamente utilizando a placa de vídeo. Este _script_ serve para isso.
+	executar uma aplicação explicitamente utilizando a placa de vídeo. Este _script_ serve para isso.

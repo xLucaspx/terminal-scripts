@@ -197,9 +197,9 @@ echo "Tamanho antes : $(numfmt --to=iec "$SIZE_BEFORE")"
 echo "Tamanho depois: $(numfmt --to=iec "$SIZE_AFTER")"
 
 if [ "$DELTA" -ge 0 ]; then
-    echo "Economia:       $(numfmt --to=iec "$DELTA")"
+	echo "Economia:       $(numfmt --to=iec "$DELTA")"
 else
-    echo "Diferença:      -$(numfmt --to=iec "$((-DELTA))")"
+	echo "Diferença:      -$(numfmt --to=iec "$((-DELTA))")"
 fi
 
 echo "----------------------------------------"

@@ -17,7 +17,7 @@ instalação de sistema operacional.
 Alguns atalhos de teclado não vêm definidos por padrão, mas podemos ajustá-los nas configurações.
 
 - `Ctrl` + `Alt` + `T`: Abrir o terminal. Por padrão, o terminal do Fedora é o `ptyxis`,então esse é o comando que deve
-  ser informado ao criar o atalho;
+	ser informado ao criar o atalho;
 - `Super` + `E`: _Launch home folder_;
 - `Super` + `,`: _Launch settings_.
 
@@ -49,19 +49,26 @@ outros pacotes. A instalação local também apresenta outras questões: a atual
 conflitar com pacotes instalados via `dnf`... No futuro, a melhor opção parece ser instalar o `texlive-scheme-full` com
 o gerenciador de pacotes.
 
+> [!tip]
+> Pode ser interessante consultar a diferença de versões... O LaTeX disponível no gerenciador de pacotes pode ser mais
+> desatualizado do que se pensava...
+
 ## Programas instalados
 
 - Celluloid: _Player_ poderoso, gosto dele para ouvir músicas e também para executar CDs (parece ter performance melhor
-  que o VLC para isso);
+	que o VLC para isso);
 - Damask: Usado para alterar o plano de fundo automaticamente; instalado via `flatpak`, precisa das permissões de
-  `background` e `wallpaper`;
+	`background` e `wallpaper` (`flatpak permission-set wallpaper wallpaper app.drey.Damask yes` e
+	`flatpak permission-set background background app.drey.Damask yes`);
 - VLC: Para vídeos ainda é meu _player_ favorito.
+
+vim (`vim-enhanced`), gnuplot, octave etc.
 
 ## Extensões GNOME
 
 - `clipboard-history`(`@alexsaveau.dev`): Usado para armazenar o histórico do _clipboard_. Vale notar que o Linux tem
-  diferentes "áreas de transferência": _primary_ (copia ao selecionar e cola com `Shift` + `Ins` ou _mouse wheel_; usada
-  principalmente no terminal) e _clipboard_ (copia com `Ctrl` + `C` e cola com `Ctrl` + `V`).
+	diferentes "áreas de transferência": _primary_ (copia ao selecionar e cola com `Shift` + `Ins` ou _mouse wheel_; usada
+	principalmente no terminal) e _clipboard_ (copia com `Ctrl` + `C` e cola com `Ctrl` + `V`).
 
 ## Placa de vídeo
 

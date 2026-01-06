@@ -11,4 +11,4 @@ _shebang_ correto: `#!/usr/bin/env bash`.
 - [`compress-pdf`](./compress-pdf): Utilitário para comprimir arquivos PDF;
 - [`compress-pdf-dir`](./compress-pdf-dir): Utilitário para comprimir PDFs recursivamente em um diretório;
 - [`run-jar.sh`](./run-jar.sh): Componente para a execução de arquivos `.jar`; se não vai ser utilizado como comando,
-  pode ser armazenado em outro local (e.g., `~/.local/lib`).
+	pode ser armazenado em outro local (e.g., `~/.local/lib`).
