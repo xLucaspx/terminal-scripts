@@ -3,6 +3,7 @@
 My Vim configuration files and commands reference guide.
 
 - [`.vimrc`](#vimrc)
+- [Plugins](#plugins)
 - [Commands and options](#commands-and-options)
 - [Spell checking](#spell-checking)
 
@@ -13,6 +14,16 @@ Vim configuration file, should be located in the user home directory (`~/.vimrc`
 For Neovim, it is possible to use this file as well (although it is probably better to read Neovim docs). Anyway, to use
 this file to configure Neovim it should be renamed to `init.vim` and placed in the Neovim configuration directory
 (`~/.config/nvim/init.vim`).
+
+## Plugins
+
+Use `vim-plug` to manage plugins
+
+For the WakaTime plugin, check documentation for how to activate. Usually:
+
+1. Execute `vim +PlugInstall` from terminal;
+2. Restart Vim and enter `:WakaTimeApiKey`;
+3. Enter API key.
 
 ## Commands and options
 

@@ -62,7 +62,17 @@ o gerenciador de pacotes.
 	`flatpak permission-set background background app.drey.Damask yes`);
 - VLC: Para vídeos ainda é meu _player_ favorito.
 
-vim (`vim-enhanced`), gnuplot, octave etc.
+No terminal:
+
+- `gnuplot`;
+- `octave`;
+- Vim (`vim-enhanced`).
+
+Aplicações `.jar`:
+
+- Logisim Evolution;
+- MARS;
+- RARS.
 
 ## Extensões GNOME
 

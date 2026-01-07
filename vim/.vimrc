@@ -17,6 +17,10 @@ highlight CursorLineNr gui=bold cterm=bold guifg=#A34D14 ctermfg=130
 
 set spell
 set spelllang=en_gb,pt_br
+highlight SpellBad term=reverse ctermbg=224 gui=undercurl guisp=Red
+highlight SpellCap term=reverse ctermbg=81 gui=undercurl guisp=Blue
+highlight SpellLocal term=reverse ctermbg=195 gui=undercurl guisp=LightCyan
+highlight SpellRare term=reverse ctermbg=225 gui=undercurl guisp=Magenta
 
 " Vertical ruler
 set colorcolumn=121
@@ -34,3 +38,7 @@ augroup RestoreCursorShape
 	autocmd!
 	autocmd VimLeave * silent !echo -ne "\e[6 q"
 augroup END
+
+call plug#begin()
+	Plug 'wakatime/vim-wakatime'
+call plug#end()
