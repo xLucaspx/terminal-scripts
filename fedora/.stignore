@@ -1,0 +1,25 @@
+// Common dirs
+tmp/
+.cache/
+.git/
+node_modules/
+dist/
+build/
+
+// IDEs
+.vscode/
+.idea/
+
+// OS
+.DS_Store
+Thumbs.db
+
+// Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+*.bak
+
+// Logs
+*.log
