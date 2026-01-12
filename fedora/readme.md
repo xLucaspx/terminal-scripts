@@ -89,6 +89,13 @@ dispositivos envolvidos. É interessante garantir que os diretórios são do tip
 de arquivos (_Simple File Versioning_). Nos diretórios sincronizados, adicione o arquivo [`.stignore`](./.stignore),
 atualizando-o se necessário.
 
+> [!important]
+> É preciso configurar o Syncthing como serviço de usuário (não execute com `sudo`):
+> ```bash
+> systemctl --user enable syncthing.service
+> systemctl --user start syncthing.service
+> ```
+
 Para espelhar o OneDrive, utilize o Rclone (provavelmente precisará de `fuse3` e `fuse3-libs`). Configure com
 `rclone config`... (TODO: atualizar quando eu conseguir configurar, meu _drive_ precisa de liberação da universidade).
 
