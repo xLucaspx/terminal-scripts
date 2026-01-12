@@ -10,6 +10,7 @@ instalação de sistema operacional.
 - [LaTeX](#latex)
 - [Programas instalados](#programas-instalados)
 - [Extensões GNOME](#extensões-gnome)
+- [Sistemas de arquivos](#sistemas-de-arquivos)
 - [Placa de vídeo](#placa-de-vídeo)
 
 ## Atalhos de teclado
@@ -79,6 +80,17 @@ Aplicações `.jar`:
 - `clipboard-history`(`@alexsaveau.dev`): Usado para armazenar o histórico do _clipboard_. Vale notar que o Linux tem
 	diferentes "áreas de transferência": _primary_ (copia ao selecionar e cola com `Shift` + `Ins` ou _mouse wheel_; usada
 	principalmente no terminal) e _clipboard_ (copia com `Ctrl` + `C` e cola com `Ctrl` + `V`).
+
+## Sistemas de arquivos
+
+Para sincronizar arquivos entre diferentes máquinas, utilize o Syncthing. Configure usando a chave da máquina desejada e
+adicionando as pastas que quer sincronizar, com os devidos caminhos. Lembre-se de realizar a configuração em todos os
+dispositivos envolvidos. É interessante garantir que os diretórios são do tipo `Send & Receive` e ativar o versionamento
+de arquivos (_Simple File Versioning_). Nos diretórios sincronizados, adicione o arquivo [`.stignore`](./.stignore),
+atualizando-o se necessário.
+
+Para espelhar o OneDrive, utilize o Rclone (provavelmente precisará de `fuse3` e `fuse3-libs`). Configure com
+`rclone config`... (TODO: atualizar quando eu conseguir configurar, meu _drive_ precisa de liberação da universidade).
 
 ## Placa de vídeo
 

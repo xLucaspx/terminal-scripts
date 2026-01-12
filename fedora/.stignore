@@ -1,25 +1,45 @@
-// Common dirs
-tmp/
-.cache/
-.git/
-node_modules/
-dist/
-build/
+// Common directories (anywhere)
+**/tmp/**
+**/temp/**
+**/.tmp/**
+**/.temp/**
+**/.cache/**
+**/.git/**
 
-// IDEs
-.vscode/
-.idea/
+// IDEs and editors
+**/.vscode/**
+**/.idea/**
+**/.classpath
+**/.project
+**/.settings/**
 
 // OS
-.DS_Store
-Thumbs.db
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
+**/*:Zone.Identifier
+**/._*
+**/*.icloud
 
-// Temporary files
-*.tmp
-*.swp
-*.swo
-*~
-*.bak
+// Temporary / backup files
+**/*.tmp
+**/*.swp
+**/*.swo
+**/*~
+**/*.bak
+**/*.orig
+**/*.rej
 
-// Logs
-*.log
+// Logs & runtime files
+**/*.log
+**/*.pid
+**/*.lock
+**/*.seed
+
+// LaTeX
+**/*.aux
+**/*.fdb_latexmk
+**/*.fls
+**/*.lof
+**/*.out
+**/*.synctex.gz
