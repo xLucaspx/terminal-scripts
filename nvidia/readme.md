@@ -6,7 +6,7 @@ Arquivos de configuração e dicas sobre a ativação da placa de vídeo Nvidia.
 
 Dependendo da placa e do sistema operacional, pode ser que ela não esteja ativada por padrão. Acredito que a melhor
 opção é o modo híbrido. Pode ser necessário instalar e configurar os _drivers_ da placa manualmente. O ideal é pesquisar
-o processo específico para a placa e o sistema operacional em questão.
+o processo específico para a placa e o sistema operacional em questão. Pode ser preciso desativar o _secure boot_.
 
 ## Arquivos de configuração
 
